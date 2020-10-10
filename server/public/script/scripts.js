@@ -59,6 +59,10 @@ function getOperator(){
 function submitInputs(){
     // console.log('submitted!!');
     // console.log(operator);
+    if($('#firstInput').val() == '' || $('#secondInput').val() == ''){
+        alert('Please enter numbers for calulation!')
+        return false;
+    }
     let numbers = {
         inputOne: $('#firstInput').val(),
         operator: operator,
