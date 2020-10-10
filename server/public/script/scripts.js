@@ -4,9 +4,12 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('JQ loaded');
+    // event listeners
     $('#submitInputs').on('click', submitInputs);
     $('#clearInputs').on('click', clearInput);
     $('.operator').on('click', getOperator);
+    // runs the getHistory on page load
+    getHistory();
 }// end of onReady
 
 let operator = '';
@@ -19,7 +22,14 @@ function clearInput() {
 
 // a GET route to grab the data from the server and to append to DOM
 function getHistory() {
-    
+    console.log('Hello from History');
+    // GET route
+    $.ajax({
+        method: 'GET',
+        url: '/calculator'
+    }).then(function(response){
+        console.log('in GET client side', response);
+    })
 }// end of GetHistory
 
 // grabs which operator is clicked on DOM to be send to server
