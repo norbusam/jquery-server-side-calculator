@@ -1,6 +1,7 @@
 // Require to pass in express and body-parser
 const express = require('express');
 const bodyParser = require('body-parser');
+// const calculation = require('./modules/calculation')
 // app is declared to use express
 const app = express();
 // the port where the project is at
@@ -31,7 +32,6 @@ app.listen(port, ()=>{
 })
 
 function calculation(){
-    console.log('in Calculation', numberArray);
     if(numberArray[0].operator === '+'){
         numberArray[0].answer = Number(numberArray[0].inputOne) + Number(numberArray[0].inputTwo);
     } else if (numberArray[0].operator === '-'){
@@ -41,4 +41,20 @@ function calculation(){
     } else if (numberArray[0].operator === '/'){
         numberArray[0].answer = Number(numberArray[0].inputOne) / Number(numberArray[0].inputTwo);
     }
-}
+} // end of calculation
+
+// function calculation(){
+//     let firstNum = numberArray[0].inputOne;
+//     let secondNum = numberArray[0].inputTwo;
+//     let operator = numberArray[0].operator;
+//     switch (operator) {
+//         case '+':
+//             return firstNum + secondNum
+//             break;
+//         case '-':
+//             return firstNum - secondNum
+//             break;
+//         default:
+//             break;
+//     }
+// }
