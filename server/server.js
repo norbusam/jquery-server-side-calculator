@@ -34,5 +34,11 @@ function calculation(){
     console.log('in Calculation', numberArray);
     if(numberArray[0].operator === '+'){
         numberArray[0].answer = Number(numberArray[0].inputOne) + Number(numberArray[0].inputTwo);
+    } else if (numberArray[0].operator === '-'){
+        numberArray[0].answer = Number(numberArray[0].inputOne) - Number(numberArray[0].inputTwo);
+    } else if (numberArray[0].operator === '*'){
+        numberArray[0].answer = Number(numberArray[0].inputOne) * Number(numberArray[0].inputTwo);
+    } else if (numberArray[0].operator === '/'){
+        numberArray[0].answer = Number(numberArray[0].inputOne) / Number(numberArray[0].inputTwo);
     }
 }
