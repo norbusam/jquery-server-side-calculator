@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 // POST route
 app.post('/calculator', (req, res)=>{
     console.log('in POST server', req.body)
+    res.sendStatus(200);
 })
 
 app.listen(port, ()=>{

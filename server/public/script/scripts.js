@@ -39,5 +39,11 @@ function submitInputs(){
         inputTwo: $('#secondInput').val(),
     }
     console.log(numbers);
-    
+    $.ajax({
+        method: 'POST',
+        url: '/calculator',
+        data: numbers
+    }).then(function(response){
+        console.log('back from server:', response);
+    })
 }// end of submitInputs
