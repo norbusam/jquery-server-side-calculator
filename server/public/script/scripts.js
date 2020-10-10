@@ -29,6 +29,14 @@ function getHistory() {
         url: '/calculator'
     }).then(function(response){
         console.log('in GET client side', response);
+        $('#history').empty();
+        for (const result of response) {
+            $('#history').append(`<li>${response[i].firstInput}
+                                     ${response[i].operator}
+                                     ${response[i].secondInput} =
+                                     
+                `)
+        }
     })
 }// end of GetHistory
 
