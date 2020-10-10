@@ -9,7 +9,7 @@ function onReady() {
     $('#clearInputs').on('click', clearInput);
     $('.operator').on('click', getOperator);
     // runs the getHistory on page load
-    getHistory();
+    // getHistory();
 }// end of onReady
 
 let operator = '';
@@ -30,11 +30,12 @@ function getHistory() {
     }).then(function(response){
         console.log('in GET client side', response);
         $('#history').empty();
-        for (const result of response) {
-            $('#history').append(`<li>${response[i].firstInput}
-                                     ${response[i].operator}
-                                     ${response[i].secondInput} =
-                                     
+        for (let result of response) {
+            $('#history').append(`<li>${result.inputOne}
+                                     ${result.operator}
+                                     ${result.inputTwo} =
+                                     ${result.answer}
+                                     </li>
                 `)
         }
     })
@@ -43,18 +44,19 @@ function getHistory() {
 // grabs which operator is clicked on DOM to be send to server
 function getOperator(){
     operator = $(this).text();
-    console.log('grabbing the operator',operator);
+    // console.log('grabbing the operator',operator);
 }//end of getOperator
 
 //on submit button, a POST route to server and get the calculation done 
 //and runs getHistory(that's the plan for now)
 function submitInputs(){
-    console.log('submitted!!');
-    console.log(operator);
+    // console.log('submitted!!');
+    // console.log(operator);
     let numbers = {
         inputOne: $('#firstInput').val(),
         operator: operator,
         inputTwo: $('#secondInput').val(),
+        answer: null
     }
     console.log(numbers);
     $.ajax({
@@ -63,5 +65,6 @@ function submitInputs(){
         data: numbers
     }).then(function(response){
         console.log('back from server:', response);
+        getHistory();
     })
 }// end of submitInputs

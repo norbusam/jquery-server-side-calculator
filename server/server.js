@@ -20,7 +20,7 @@ app.get('/calculator', (req, res)=>{
 // POST route
 app.post('/calculator', (req, res)=>{
     console.log('in POST server', req.body);
-    numberArray.push(req.body);
+    numberArray.unshift(req.body);
     calculation();
     console.log('object to be calculated:',numberArray);
     res.sendStatus(200);
@@ -30,8 +30,9 @@ app.listen(port, ()=>{
     console.log('Server up and running at:', port);
 })
 
-function calculation(){;
-    if(numberArray[i].operator === '+'){
-        return numberArray[i].firstInput + numberArray[i].secondInput
+function calculation(){
+    console.log('in Calculation', numberArray);
+    if(numberArray[0].operator === '+'){
+        numberArray[0].answer = Number(numberArray[0].inputOne) + Number(numberArray[0].inputTwo);
     }
 }
