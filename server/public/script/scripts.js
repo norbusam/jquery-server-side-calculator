@@ -39,4 +39,5 @@ function submitInputs(){
         inputTwo: $('#secondInput').val(),
     }
     console.log(numbers);
+    
 }// end of submitInputs

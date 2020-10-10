@@ -10,6 +10,13 @@ app.use(express.static('server/public'));
 
 app.use(bodyParser.urlencoded({extended:true}));
 
+// GET route
+
+
+// POST route
+app.post('/calculator', (req, res)=>{
+    console.log('in POST server', req.body)
+})
 
 app.listen(port, ()=>{
     console.log('Server up and running at:', port);
