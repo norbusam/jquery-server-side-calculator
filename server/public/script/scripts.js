@@ -23,6 +23,7 @@ function clearInput() {
 // a GET route to grab the data from the server and to append to DOM
 function getHistory() {
     console.log('Hello from History');
+    $('#history').empty();
     // GET route
     $.ajax({
         method: 'GET',
@@ -38,7 +39,13 @@ function getHistory() {
                                      </li>
                 `)
         }
+        // appending just the answer to DOM
+        let result = $('#resultOutput');
+        result.empty();
+        console.log(response[0].answer);
+        result.append(`<p>${response[0].answer}</p>`);
     })
+    
 }// end of GetHistory
 
 // grabs which operator is clicked on DOM to be send to server
