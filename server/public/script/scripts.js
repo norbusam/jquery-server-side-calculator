@@ -4,22 +4,33 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('JQ loaded');
-    $('#submitInputs').on('click', submitInputs)
-    $('#clearInputs').on('click', clear)
+    $('#submitInputs').on('click', submitInputs);
+    $('#clearInputs').on('click', clearInput);
+    $('.operator').on('click', getOperator);
 }// end of onReady
 
-function clear() {
+let operator = '';
+
+function clearInput() {
     $('#firstInput').val('');
     $('#secondInput').val('');
-}//end of clear
+}//end of clearInput
+
+function getHistory() {
+    
+}// end of GetHistory
+
+function getOperator(){
+    operator = $(this).text();
+    console.log('grabbing the operator',operator);
+}
 
 function submitInputs(){
     console.log('submitted!!');
-    let operator = $('#plus').val();
     console.log(operator);
     let numbers = {
         inputOne: $('#firstInput').val(),
-        operator: '',
+        operator: operator,
         inputTwo: $('#secondInput').val(),
     }
     console.log(numbers);
