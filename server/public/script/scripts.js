@@ -9,7 +9,7 @@ function onReady() {
     $('#clearInputs').on('click', clearInput);
     $('.operator').on('click', getOperator);
     // runs the getHistory on page load
-    // getHistory();
+    getHistory();
 }// end of onReady
 
 let operator = '';
